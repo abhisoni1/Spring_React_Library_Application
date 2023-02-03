@@ -1,6 +1,7 @@
 package com.abhisoni.spingbootlibrary.config;
 
 import com.abhisoni.spingbootlibrary.entity.Book;
+import com.abhisoni.spingbootlibrary.entity.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -23,8 +24,10 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         };
 
         config.exposeIdsFor(Book.class);
-        
+        config.exposeIdsFor(Review.class);
+
         disableHttpMethods(Book.class, config, unsupportedmethods);
+        disableHttpMethods(Review.class, config, unsupportedmethods);
 
         /* Configure CORS mapping */
 
